@@ -129,7 +129,7 @@ const sortData = (projects, sortOrder) => {
   return utils.sortItems(projects, sortOrder);
 };
 
-const UsersComponent = () => {
+const ProjectComponent = () => {
   const classes = useStyles();
 
   const [limit, setLimit] = useState(3);
@@ -255,4 +255,4 @@ const UsersComponent = () => {
   );
 };
 
-export default UsersComponent;
+export default ProjectComponent;
