@@ -1,6 +1,19 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLongArrowAltDown,
+  faLongArrowAltUp,
+  faCircleNotch,
+} from "@fortawesome/free-solid-svg-icons";
+
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
 
 const TableHeadComponent = (props) => {
+  const { changeSortOrder, sortOrder } = props;
   return (
     <TableHead>
       <TableRow className="table-header">

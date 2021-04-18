@@ -42,7 +42,7 @@ const HeaderNavbar = () => {
           <Link color="red" to="/">
             Users
           </Link>
-          <Link to="/asdf">Projects</Link>
+          <Link to="/projects">Projects</Link>
         </Toolbar>
       </AppBar>
     </div>

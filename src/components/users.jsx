@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +17,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./../common/css/style.css";
+import TableHeadComponent from "../common/tableHeadComponent";
+import TableBodyComponent from "../common/tableBodyComponent";
 const debug = require("debug")("server:debug");
 
 let utils = require("../utils/sort");
@@ -169,84 +171,29 @@ const UsersComponent = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="user-component-1">
       <Grid container justify="center">
         <Grid item xs={10}>
+          <Typography variant="h3" gutterBottom>
+           User's Change Management Report
+          </Typography>
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
-              <TableHead>
-                <TableRow className="table-header">
-                  <TableCell
-                    align="left"
-                    onClick={() => changeSortOrder(sortOrder)}
-                  >
-                    Date
-                    <FontAwesomeIcon
-                      icon={
-                        sortOrder === "desc"
-                          ? faLongArrowAltDown
-                          : faLongArrowAltUp
-                      }
-                    />
-                  </TableCell>
-                  <TableCell align="left">User ID</TableCell>
-                  <TableCell align="left">Old value</TableCell>
-                  <TableCell align="left">New value</TableCell>
-                </TableRow>
-              </TableHead>
+              <TableHeadComponent
+                changeSortOrder={changeSortOrder}
+                sortOrder={sortOrder}
+              />
 
-              <TableBody>
-                {sortData(sortedUsers.slice(0, limit), sortOrder).map(
-                  (row, index) => {
-                    return (
-                      <TableRow key={index}>
-                        <TableCell component="th" scope="row">
-                          {row.date.format("yyyy-MM-DD")}
-                        </TableCell>
-                        <TableCell align="left">{row.userId}</TableCell>
-                        <TableCell align="left">{row.oldValue}</TableCell>
-                        <TableCell align="left">{row.newValue}</TableCell>
-                      </TableRow>
-                    );
-                  }
-                )}
-
-                <TableRow>
-                  <TableCell colSpan="4" align="center">
-                    {loading ? (
-                      <React.Fragment>
-                        <FontAwesomeIcon
-                          icon={faCircleNotch}
-                          spin
-                          size="4x"
-                          color="blue"
-                        />
-                      </React.Fragment>
-                    ) : errorState ? (
-                      <React.Fragment>
-                        <p className={classes.pTag}>
-                          We had problems fetching your data. Please try again.
-                        </p>
-                        <Button
-                          color="primary"
-                          variant="contained"
-                          onClick={() => loadMore()}
-                        >
-                          Retry
-                        </Button>
-                      </React.Fragment>
-                    ) : (
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        onClick={() => loadMore()}
-                      >
-                        Load More
-                      </Button>
-                    )}
-                  </TableCell>
-                </TableRow>
-              </TableBody>
+              <TableBodyComponent
+                sortData={sortData}
+                sortedData={sortedUsers}
+                limit={limit}
+                sortOrder={sortOrder}
+                loading={loading}
+                loadMore={loadMore}
+                errorState={errorState}
+                classes={classes}
+              />
             </Table>
           </TableContainer>
         </Grid>
