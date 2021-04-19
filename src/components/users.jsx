@@ -26,73 +26,73 @@ let utils = require("../utils/sort");
 const userData = [
   {
     date: moment("2022-06-03"),
-    userId: "dThhsquugcNuScEjo",
+    userId: "dThhsquugcNuScEjo111",
     oldValue: "Windows 98",
     newValue: "Windows 10",
   },
   {
     date: moment("2018-06-04"),
-    userId: "53ZPA42pd5ZfJpCAa",
+    userId: "53ZPA42pd5ZfJpCAa2",
     oldValue: "Unix",
     newValue: "Linux",
   },
   {
     date: moment("2018-06-05"),
-    userId: "Xcm2FRCQZZB2Fb37h",
+    userId: "Xcm2FRCQZZB2Fb373",
     oldValue: "C Language",
     newValue: "Java Language",
   },
   {
     date: moment("2018-06-05"),
-    userId: "dThhsquugcNuScEjo",
+    userId: "dThhsquugcNuScEjo3",
     oldValue: "Shellscript",
     newValue: "Python",
   },
   {
     date: moment("2018-06-04"),
-    userId: "53ZPA42pd5ZfJpCAa",
+    userId: "53ZPA42pd5ZfJpCA23a",
     oldValue: "Jquery",
     newValue: "React",
   },
   {
     date: moment("2018-06-08"),
-    userId: "Xcm2FRCQZZB2Fb37h",
+    userId: "Xcm2FRCQZZB2Fb37h1",
     oldValue: "XML Content",
     newValue: "JSON Content",
   },
   {
     date: moment("2016-07-03"),
-    userId: "ikemv5MHiK6MHbMkS",
+    userId: "ikemv5MHiK6MHbMkS1",
     oldValue: "SOAP",
     newValue: "REST",
   },
   {
     date: moment("2011-09-03"),
-    userId: "8",
+    userId: "ikemv5MHiK6MHbMkS123232",
     oldValue: ".NET Stack",
     newValue: "Java Stack",
   },
   {
     date: moment("2009-12-03"),
-    userId: "9",
+    userId: "53ZPA42pd5ZfJpCA23aliuou",
     oldValue: "In house Data center",
     newValue: "Cloud Native",
   },
   {
     date: moment("2015-08-23"),
-    userId: "10",
+    userId: "10Xcm2FRCQZZB2Fb37h1",
     oldValue: "Desktop Apps",
     newValue: "Web Apps",
   },
   {
     date: moment("2013-06-03"),
-    userId: "11",
+    userId: "Xcm2FRCQZZB2Fb37h13fdg11",
     oldValue: "Big Data",
     newValue: "Small Data",
   },
   {
     date: moment("2017-06-28"),
-    userId: "12",
+    userId: "1Xcm2FRCQZZB2Fb37h12",
     oldValue: "Manual Testing",
     newValue: "Automation Testing",
   },
@@ -156,6 +156,7 @@ const UsersComponent = () => {
   };
 
   const loadMore = () => {
+    console.log("skv load more is called ");
     setLoading(true);
 
     setTimeout(() => {
@@ -168,14 +169,22 @@ const UsersComponent = () => {
       }
       setIsLoadingAllowed(isLoadingAllowed ? false : true);
     }, 1500);
+
+    // setLoading(false);
+    // if (isLoadingAllowed) {
+    //   setLimit(limit + 3);
+    //   setErrorState(false);
+    //   setErrorState(true);
+    // }
+    // setIsLoadingAllowed(isLoadingAllowed ? false : true);
   };
 
   return (
     <div className={classes.root} data-testid="user-component-1">
       <Grid container justify="center">
         <Grid item xs={10}>
-          <Typography variant="h3" gutterBottom>
-           User's Change Management Report
+          <Typography variant="h3" gutterBottom data-testid="titleBar">
+            User's Change Management Report
           </Typography>
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">

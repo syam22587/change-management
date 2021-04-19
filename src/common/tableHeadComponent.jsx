@@ -16,7 +16,7 @@ const TableHeadComponent = (props) => {
   const { changeSortOrder, sortOrder } = props;
   return (
     <TableHead>
-      <TableRow className="table-header">
+      <TableRow className="table-header" data-testid="table-header">
         <TableCell align="left" onClick={() => changeSortOrder(sortOrder)}>
           Date
           <FontAwesomeIcon

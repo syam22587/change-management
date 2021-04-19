@@ -7,8 +7,11 @@ afterEach(() => {
 });
 describe("Users Test Suite", () => {
   test("it should load three records by default ", () => {
-    render(<UsersComponent />);
+    const userComp = render(<UsersComponent />);
     const userComponent = screen.getByTestId("user-table-body");
+    // console.log("userComponent", userComponent);
     expect(userComponent).toBeInTheDocument();
+
+   
   });
 });

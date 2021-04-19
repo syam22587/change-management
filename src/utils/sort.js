@@ -5,7 +5,7 @@
  * @return   {number } returns an integer (negative, zero or positive)
  */
 const sortItems = (users, sortOrder) => {
-  console.log("asdfsadf" , users, sortOrder)
+  // console.log("asdfsadf" , users, sortOrder)
   return users.sort((a, b) => {
     if (sortOrder === "desc") {
       return b.date.format("YYYYMMDD") - a.date.format("YYYYMMDD");

@@ -27,12 +27,12 @@ const TableBodyComponent = (props) => {
     classes,
   } = props;
 
-  console.log(" props ", props);
+  // console.log(" props ", props);
   return (
     <TableBody data-testid="user-table-body">
-      {sortData(sortedData.slice(0, limit), sortOrder).map((row, index) => {
+      {sortData(sortedData.slice(0, limit), sortOrder).map((row) => {
         return (
-          <TableRow key={index}>
+          <TableRow className="row-id" key={row.userId} data-testid={row.userId}>
             <TableCell component="th" scope="row">
               {row.date.format("yyyy-MM-DD")}
             </TableCell>
@@ -72,6 +72,7 @@ const TableBodyComponent = (props) => {
               color="primary"
               variant="contained"
               onClick={() => loadMore()}
+              data-testid="load-more-btn"
             >
               Load More
             </Button>
