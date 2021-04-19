@@ -155,11 +155,10 @@ const UsersComponent = () => {
     sortOrderKey === "desc" ? setSortOrder("asc") : setSortOrder("desc");
   };
 
-  const loadMore = () => {
-    console.log("skv load more is called ");
+  const loadMore = async () => {
     setLoading(true);
 
-    setTimeout(() => {
+    await setTimeout(() => {
       setLoading(false);
       if (isLoadingAllowed) {
         setLimit(limit + 3);
@@ -169,14 +168,6 @@ const UsersComponent = () => {
       }
       setIsLoadingAllowed(isLoadingAllowed ? false : true);
     }, 1500);
-
-    // setLoading(false);
-    // if (isLoadingAllowed) {
-    //   setLimit(limit + 3);
-    //   setErrorState(false);
-    //   setErrorState(true);
-    // }
-    // setIsLoadingAllowed(isLoadingAllowed ? false : true);
   };
 
   return (
