@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    padding: "5px",
+    color: "white",
+    fontWeight: "bold",
+  },
 }));
 
 const HeaderNavbar = () => {
@@ -38,10 +43,12 @@ const HeaderNavbar = () => {
             Unity Stuff
           </Typography>
 
-          <Link color="red" to="/">
+          <Link className={classes.link} color="red" to="/">
             Users
           </Link>
-          <Link to="/projects">Projects</Link>
+          <Link className={classes.link} to="/projects">
+            Projects
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
