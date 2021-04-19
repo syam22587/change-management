@@ -66,20 +66,35 @@ describe("Users Test Suite", () => {
     let testKey1 = "dThhsquugcNuScEjo111";
     let testKey2 = "Xcm2FRCQZZB2Fb37h1";
     let testKey3 = "Xcm2FRCQZZB2Fb373";
-    const element1 = component.getByTestId(testKey1);
-    expect(element1).toHaveTextContent("2022-06-03");
-    const element2 = component.getByTestId(testKey2);
-    expect(element2).toHaveTextContent("2018-06-08");
-    const element3 = component.getByTestId(testKey3);
-    expect(element3).toHaveTextContent("2018-06-05");
+
+    const { getByTestId, container } = render(<UsersComponent />);
+    expect(container.querySelectorAll(".row-id")[0]).toHaveTextContent(
+      testKey1
+    );
+    expect(container.querySelectorAll(".row-id")[1]).toHaveTextContent(
+      testKey2
+    );
+    expect(container.querySelectorAll(".row-id")[2]).toHaveTextContent(
+      testKey3
+    );
   });
 
   test(" should sort in ascending order when clicked on date field header", async () => {
     const { getByTestId, container } = render(<UsersComponent />);
+
+    let testKey1 = "dThhsquugcNuScEjo111";
+    let testKey2 = "Xcm2FRCQZZB2Fb37h1";
+    let testKey3 = "Xcm2FRCQZZB2Fb373";
     let btnElement = getByTestId("date-sort-test");
     fireEvent.click(btnElement);
     expect(container.querySelectorAll(".row-id")[0]).toHaveTextContent(
-      "Xcm2FRCQZZB2Fb373"
+      testKey3
+    );
+    expect(container.querySelectorAll(".row-id")[1]).toHaveTextContent(
+      testKey2
+    );
+    expect(container.querySelectorAll(".row-id")[2]).toHaveTextContent(
+      testKey1
     );
   });
 
