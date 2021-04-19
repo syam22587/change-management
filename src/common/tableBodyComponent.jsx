@@ -32,7 +32,11 @@ const TableBodyComponent = (props) => {
     <TableBody data-testid="user-table-body">
       {sortData(sortedData.slice(0, limit), sortOrder).map((row) => {
         return (
-          <TableRow className="row-id" key={row.userId} data-testid={row.userId}>
+          <TableRow
+            className="row-id"
+            key={row.userId}
+            data-testid={row.userId}
+          >
             <TableCell component="th" scope="row">
               {row.date.format("yyyy-MM-DD")}
             </TableCell>
@@ -56,7 +60,7 @@ const TableBodyComponent = (props) => {
             </React.Fragment>
           ) : errorState ? (
             <React.Fragment>
-              <p className={classes.pTag}>
+              <p className={classes.pTag} data-testid="data-error123">
                 We had problems fetching your data. Please try again.
               </p>
               <Button

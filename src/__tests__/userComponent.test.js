@@ -74,6 +74,15 @@ describe("Users Test Suite", () => {
     expect(element3).toHaveTextContent("2018-06-05");
   });
 
+  test(" should sort in ascending order when clicked on date field header", async () => {
+    const { getByTestId, container } = render(<UsersComponent />);
+    let btnElement = getByTestId("date-sort-test");
+    fireEvent.click(btnElement);
+    expect(container.querySelectorAll(".row-id")[0]).toHaveTextContent(
+      "Xcm2FRCQZZB2Fb373"
+    );
+  });
+
   test("should display the load more button ", () => {
     const component = render(<UsersComponent />);
     let btnElement = component.getByTestId("load-more-btn");
