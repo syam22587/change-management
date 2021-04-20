@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import NotFound from "../common/notFound";
+import NotFound from "../../common/notFound";
 
 test("should display not found page ", () => {
   const { getByTestId } = render(<NotFound />);

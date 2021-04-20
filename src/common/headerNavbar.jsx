@@ -39,14 +39,27 @@ const HeaderNavbar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            data-testid="title-id"
+            variant="h6"
+            className={classes.title}
+          >
             Unity Stuff
           </Typography>
 
-          <Link className={classes.link} color="red" to="/">
+          <Link
+            className={classes.link}
+            color="red"
+            to="/"
+            data-testid="users-link-id"
+          >
             Users
           </Link>
-          <Link className={classes.link} to="/projects">
+          <Link
+            className={classes.link}
+            to="/projects"
+            data-testid="projects-link-id"
+          >
             Projects
           </Link>
         </Toolbar>
